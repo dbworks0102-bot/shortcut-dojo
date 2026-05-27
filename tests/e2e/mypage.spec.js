@@ -1,4 +1,4 @@
-// =========================================================
+﻿// =========================================================
 //  mypage.spec.js — マイページ画面のE2Eテスト
 // =========================================================
 import { test, expect } from '@playwright/test'
@@ -23,7 +23,7 @@ const MOCK_STATS = {
 
 test.describe('マイページ画面', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     // プレイヤー名と統計データを設定
     await page.evaluate((stats) => {
       localStorage.setItem('ppt-dojo-name', 'テスト太郎')

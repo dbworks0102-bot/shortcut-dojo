@@ -1,11 +1,11 @@
-// =========================================================
+﻿// =========================================================
 //  ranking.spec.js — ランキング画面のE2Eテスト
 // =========================================================
 import { test, expect } from '@playwright/test'
 
 test.describe('ランキング画面', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     // ランキングをクリア
     await page.evaluate(() => {
       ;['easy', 'medium', 'hard'].forEach(d =>

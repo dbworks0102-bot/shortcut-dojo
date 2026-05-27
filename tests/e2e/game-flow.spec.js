@@ -1,11 +1,11 @@
-// =========================================================
+﻿// =========================================================
 //  game-flow.spec.js — ゲームフローのE2Eテスト
 // =========================================================
 import { test, expect } from '@playwright/test'
 
 test.describe('タイトル画面', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
   })
 
   test('タイトル画面が表示される', async ({ page }) => {
@@ -25,7 +25,7 @@ test.describe('タイトル画面', () => {
 
 test.describe('ゲーム開始〜プレイ', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     // ランキング・統計をクリアして初期状態に
     await page.evaluate(() => {
       ;['easy', 'medium', 'hard'].forEach(d =>
@@ -80,7 +80,7 @@ test.describe('ゲーム開始〜プレイ', () => {
 
   test('「2」「3」「4」キーでも回答できる', async ({ page }) => {
     for (const key of ['2', '3', '4']) {
-      await page.goto('/')
+      await page.goto('/ppt/')
       await page.locator('.start-btn').click()
       await expect(page.locator('.c-btn').first()).toBeVisible()
       await page.keyboard.press(key)
@@ -93,28 +93,28 @@ test.describe('ゲーム開始〜プレイ', () => {
 
 test.describe('難易度選択', () => {
   test('「ふつう」選択でmediumに切り替わる', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     const mediumBtn = page.locator('.diff-btn.medium')
     await mediumBtn.click()
     await expect(mediumBtn).toHaveClass(/selected/)
   })
 
   test('「むずかしい」選択でhardに切り替わる', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     const hardBtn = page.locator('.diff-btn.hard')
     await hardBtn.click()
     await expect(hardBtn).toHaveClass(/selected/)
   })
 
   test('デフォルトは「かんたん」が選択済み', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     await expect(page.locator('.diff-btn.easy')).toHaveClass(/selected/)
   })
 })
 
 test.describe('モーダル操作', () => {
   test('ゲーム中に終了ボタンで確認モーダルが表示される', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     await page.locator('.start-btn').click()
     await expect(page.locator('.c-btn').first()).toBeVisible()
 
@@ -124,7 +124,7 @@ test.describe('モーダル操作', () => {
   })
 
   test('モーダルのキャンセルでゲームに戻れる', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     await page.locator('.start-btn').click()
     await expect(page.locator('.c-btn').first()).toBeVisible()
     await page.locator('.g-ctrl-btn.quit').click()
@@ -136,7 +136,7 @@ test.describe('モーダル操作', () => {
   })
 
   test('ESCキーでモーダルをキャンセルできる', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/ppt/')
     await page.locator('.start-btn').click()
     await expect(page.locator('.c-btn').first()).toBeVisible()
     await page.locator('.g-ctrl-btn.quit').click()
