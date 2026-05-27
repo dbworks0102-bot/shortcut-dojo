@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ショートカット道場 — PCスキル上達クイズ</title>
+
+  <!-- SEO -->
+  <meta name="description" content="PowerPoint・Excel・Wordのショートカットキーを楽しく身につける無料クイズゲーム集。">
+  <link rel="canonical" href="https://shortcut-dojo.com/">
+
+  <!-- OGP -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://shortcut-dojo.com/">
+  <meta property="og:title"       content="ショートカット道場 — PCスキル上達クイズ">
+  <meta property="og:description" content="PowerPoint・Excel・Wordのショートカットキーを楽しく身につける無料クイズゲーム集。">
+  <meta property="og:image"       content="https://shortcut-dojo.com/ogp.png">
+  <meta property="og:locale"      content="ja_JP">
+  <meta property="og:site_name"   content="ショートカット道場">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="ショートカット道場 — PCスキル上達クイズ">
+  <meta name="twitter:description" content="PowerPoint・Excel・Wordのショートカットキーを楽しく身につける無料クイズゲーム集。">
+  <meta name="twitter:image"       content="https://shortcut-dojo.com/ogp.png">
+
+  <!-- Favicon -->
+  <link rel="icon"             href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon"   href="/favicon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFR73HWEPN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SFR73HWEPN');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red:    #e63946;
+      --orange: #f4a261;
+      --teal:   #2a9d8f;
+      --dark:   #0f0e17;
+      --dark2:  #1a1a2e;
+      --muted:  #8892b0;
+      --gold:   #ffd700;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Segoe UI', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* ── トップバー ── */
+    .top-bar {
+      height: 5px;
+      background: linear-gradient(90deg, var(--red), var(--orange), var(--teal), var(--red));
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    /* ── ヘッダー ── */
+    header {
+      text-align: center;
+      padding: 3.5rem 1rem 2.5rem;
+    }
+    .site-logo {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+    .site-logo em { color: var(--red); font-style: normal; }
+    .site-sub {
+      margin-top: 0.6rem;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    /* ── カードグリッド ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 5rem;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-color, var(--red));
+      border-radius: 20px 20px 0 0;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .card-icon  { font-size: 2.4rem; margin-bottom: 0.8rem; display: block; }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+    }
+    .card-desc  { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .card-tags  { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.07);
+      color: var(--gold);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+    }
+    .badge-live { background: rgba(42,157,143,0.25); color: var(--teal); }
+    .badge-soon { background: rgba(255,255,255,0.07); color: var(--muted); }
+
+    /* ── フッター ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"></div>
+
+  <header>
+    <div class="site-logo">⌨️ <em>ショートカット</em>道場</div>
+    <div class="site-sub">PCスキルをゲームで楽しく身につける</div>
+  </header>
+
+  <main>
+    <div class="section-title">🎮 ゲーム一覧</div>
+    <div class="cards">
+
+      <!-- PPT道場 -->
+      <a class="card" href="/ppt/" style="--card-color: #e63946;">
+        <span class="card-badge badge-live">● LIVE</span>
+        <span class="card-icon">🥋</span>
+        <div class="card-title">PPT道場</div>
+        <div class="card-desc">パワーポイントのショートカットキーをマスターしよう。150問・3難易度・ランキング機能付き。</div>
+        <div class="card-tags">
+          <span class="tag">PowerPoint</span>
+          <span class="tag">150問</span>
+          <span class="tag">ランキング</span>
+        </div>
+      </a>
+
+      <!-- Excel道場（準備中） -->
+      <div class="card" style="--card-color: #2a9d8f; opacity: 0.55; cursor: default;">
+        <span class="card-badge badge-soon">準備中</span>
+        <span class="card-icon">📊</span>
+        <div class="card-title">Excel道場</div>
+        <div class="card-desc">エクセルのショートカットキーで作業効率を劇的アップ。Coming Soon！</div>
+        <div class="card-tags">
+          <span class="tag">Excel</span>
+          <span class="tag">Coming Soon</span>
+        </div>
+      </div>
+
+      <!-- Word道場（準備中） -->
+      <div class="card" style="--card-color: #f4a261; opacity: 0.55; cursor: default;">
+        <span class="card-badge badge-soon">準備中</span>
+        <span class="card-icon">📝</span>
+        <div class="card-title">Word道場</div>
+        <div class="card-desc">ワードの便利なショートカットキーを一気に習得。Coming Soon！</div>
+        <div class="card-tags">
+          <span class="tag">Word</span>
+          <span class="tag">Coming Soon</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 ショートカット道場 — <a href="/ppt/" style="color: var(--muted);">PPT道場</a>
+  </footer>
+</body>
+</html>
