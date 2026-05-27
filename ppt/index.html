@@ -577,6 +577,8 @@
     .r-btn.home   { background: rgba(255,255,255,0.08); color: #fff; border: 1.5px solid rgba(255,255,255,0.15); }
     .r-btn.rank   { background: rgba(255,215,0,0.1);    color: var(--gold); border: 1.5px solid rgba(255,215,0,0.3); }
     .r-btn.retry  { background: linear-gradient(135deg, var(--red), var(--orange)); color: #fff; box-shadow: 0 6px 20px rgba(230,57,70,0.35); }
+    .r-btn.share  { background: linear-gradient(135deg, #1da1f2, #0d8ecf); color: #fff; box-shadow: 0 6px 20px rgba(29,161,242,0.30); }
+    .r-btn.share:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
     /* ===== RANKING SCREEN ===== */
     #ranking-screen {
@@ -908,6 +910,7 @@
     <button class="r-btn rank"   onclick="showRankingCurrent()">🏆 ランキング</button>
     <button class="r-btn retry"  onclick="startGame()">🔄 もう一度！</button>
   </div>
+  <button class="r-btn share" id="share-btn" onclick="shareResult()" style="margin-top:0.6rem;">📸 シェア</button>
 </div>
 
 <!-- ==================== RANKING SCREEN ==================== -->

@@ -10,6 +10,7 @@ import { selectDiff, goTitle }                  from './ui/screens.js'
 import { startGame, confirmQuit, confirmRestart, answer } from './core/game.js'
 import { showRanking, showRankTab, rankBack, confirmClearRanks } from './ui/ranking.js'
 import { showMyPage, mpBack, confirmResetStats } from './ui/mypage.js'
+import { shareScore }                           from './utils/share.js'
 
 // =========================================================
 //  HTMLから呼び出せるようにwindowへ公開
@@ -29,6 +30,31 @@ Object.assign(window, {
   confirmResetStats,
   // リザルト画面の「ランキング」ボタン: onclick="showRankingCurrent()"
   showRankingCurrent: () => showRanking(G.diff),
+
+  // リザルト画面の「シェア」ボタン: onclick="shareResult()"
+  shareResult: async () => {
+    const btn = document.getElementById('share-btn')
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ 生成中...' }
+
+    const total = G.correct + G.wrong
+    const acc   = total > 0 ? Math.round(G.correct / total * 100) : 0
+
+    await shareScore({
+      grade:       document.getElementById('r-grade').textContent.trim(),
+      score:       G.score,
+      correct:     G.correct,
+      wrong:       G.wrong,
+      acc,
+      maxCombo:    G.maxCombo,
+      diff:        G.diff,
+      playerName:  getPlayerName() || 'ゲスト',
+    })
+
+    if (btn) {
+      btn.disabled    = false
+      btn.textContent = '📸 シェア'
+    }
+  },
 })
 
 // =========================================================
