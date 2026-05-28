@@ -9,7 +9,7 @@ import { showScreen, goTitle } from './screens.js'
 import { getOnlineRankings, isOnlineEnabled } from '../utils/supabase.js'
 
 export let currentRankDiff = 'easy'
-let rankMode = 'local'  // 'local' | 'online'
+let rankMode = 'online'  // 'online' | 'local'  ← グローバルをデフォルトに
 
 // =========================================================
 //  画面表示
@@ -21,10 +21,18 @@ export function showRanking(diff) {
   document.querySelectorAll('.rank-tab').forEach(t => t.classList.remove('active'))
   document.querySelector('.rank-tab.' + currentRankDiff).classList.add('active')
 
-  // オンラインボタン表示制御
+  // Supabase未設定の場合はローカルに強制フォールバック
+  if (!isOnlineEnabled()) rankMode = 'local'
+
+  // ボタン表示・アクティブ状態を更新
   const onlineBtn = document.getElementById('rmt-online')
+  const localBtn  = document.getElementById('rmt-local')
   if (onlineBtn) {
     onlineBtn.style.display = isOnlineEnabled() ? '' : 'none'
+    onlineBtn.classList.toggle('active', rankMode === 'online')
+  }
+  if (localBtn) {
+    localBtn.classList.toggle('active', rankMode === 'local')
   }
 
   renderRankTable(currentRankDiff)
