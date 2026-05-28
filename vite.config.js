@@ -8,10 +8,13 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main:  resolve(__dirname, 'index.html'),
-        ppt:   resolve(__dirname, 'ppt/index.html'),
-        excel: resolve(__dirname, 'excel/index.html'),
-        word:  resolve(__dirname, 'word/index.html'),
+        main:           resolve(__dirname, 'index.html'),
+        ppt:            resolve(__dirname, 'ppt/index.html'),
+        pptShortcuts:   resolve(__dirname, 'ppt/shortcuts/index.html'),
+        excel:          resolve(__dirname, 'excel/index.html'),
+        excelShortcuts: resolve(__dirname, 'excel/shortcuts/index.html'),
+        word:           resolve(__dirname, 'word/index.html'),
+        wordShortcuts:  resolve(__dirname, 'word/shortcuts/index.html'),
       },
     },
   },
