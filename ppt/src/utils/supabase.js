@@ -1,8 +1,8 @@
 // =========================================================
-//  supabase.js — オンラインランキング（Supabase REST API）
+//  supabase.js — オンラインランキング・フィードバック（Supabase REST API）
 //  環境変数:
 //    VITE_SUPABASE_URL      = https://xxxxxxxx.supabase.co
-//    VITE_SUPABASE_ANON_KEY = eyJxxxxxxx
+//    VITE_SUPABASE_ANON_KEY = sb_publishable_xxx or eyJxxxxxxx
 // =========================================================
 
 const URL_BASE = import.meta.env.VITE_SUPABASE_URL     || ''
