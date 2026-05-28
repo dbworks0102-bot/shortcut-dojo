@@ -73,10 +73,15 @@
   }
   </script>
 
-  <!-- Favicon -->
+  <!-- Favicon & PWA -->
   <link rel="icon"             href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon"   href="/favicon-32.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest"         href="/manifest.json">
+  <meta name="mobile-web-app-capable"       content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title"   content="ショートカット道場">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFR73HWEPN"></script>
@@ -85,6 +90,16 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-SFR73HWEPN');
+  </script>
+
+  <!-- Service Worker 登録 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .catch(err => console.warn('SW registration failed:', err))
+      })
+    }
   </script>
 
   <style>
