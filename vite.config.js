@@ -8,8 +8,9 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        ppt:  resolve(__dirname, 'ppt/index.html'),
+        main:  resolve(__dirname, 'index.html'),
+        ppt:   resolve(__dirname, 'ppt/index.html'),
+        excel: resolve(__dirname, 'excel/index.html'),
       },
     },
   },
