@@ -184,7 +184,7 @@ export async function shareScore(params) {
 
   // ── PC: X(Twitter) ポップアップ + 画像ダウンロード ──
   const twitterUrl =
-    'https://twitter.com/intent/tweet?' +
+    'https://x.com/intent/post?' +
     'text='  + encodeURIComponent(shareText + '\n') +
     '&url='  + encodeURIComponent(shareUrl)
 
