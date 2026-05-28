@@ -388,6 +388,8 @@
     .g-ctrl-btn:hover { color: #fff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); transform: translateY(-1px); }
     .g-ctrl-btn.quit:hover  { border-color: rgba(230,57,70,0.6);  background: rgba(230,57,70,0.1);  color: var(--red); }
     .g-ctrl-btn.restart:hover { border-color: rgba(42,157,143,0.6); background: rgba(42,157,143,0.1); color: var(--teal); }
+    .g-right-btns { display: flex; gap: 0.4rem; align-items: center; }
+    .g-header-spacer { flex: 0 0 auto; min-width: 120px; }
 
     .h-stats { display: flex; gap: 1.5rem; align-items: center; }
     .h-stat  { text-align: center; min-width: 80px; }
@@ -993,6 +995,7 @@
 
     #feedback-screen::-webkit-scrollbar       { display: block; width: 4px; }
     #feedback-screen::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+    .fb-gform { width: 100%; height: calc(100vh - 120px); min-height: 600px; border: none; border-radius: 12px; }
 
     /* ===================================================
        MOBILE RESPONSIVE  (〜480px)
@@ -1170,11 +1173,8 @@
 <div id="game-screen" class="screen">
 
   <div class="g-header">
-    <!-- 終了ボタン -->
-    <button class="g-ctrl-btn quit" onclick="confirmQuit()">
-      <span class="btn-icon">🚪</span>
-      <span>終了</span>
-    </button>
+    <!-- 左スペーサー（中央揃え用） -->
+    <div class="g-header-spacer"></div>
 
     <!-- スコア / タイマー / コンボ -->
     <div class="h-stats">
@@ -1192,11 +1192,17 @@
       </div>
     </div>
 
-    <!-- やり直しボタン -->
-    <button class="g-ctrl-btn restart" onclick="confirmRestart()">
-      <span class="btn-icon">🔄</span>
-      <span>やり直し</span>
-    </button>
+    <!-- 右側ボタン群 -->
+    <div class="g-right-btns">
+      <button class="g-ctrl-btn restart" onclick="confirmRestart()">
+        <span class="btn-icon">🔄</span>
+        <span>やり直し</span>
+      </button>
+      <button class="g-ctrl-btn quit" onclick="confirmQuit()">
+        <span class="btn-icon">🚪</span>
+        <span>終了</span>
+      </button>
+    </div>
   </div>
 
   <div class="belt-strip" id="belt-strip"></div>
@@ -1324,56 +1330,12 @@
   </div>
 
   <div class="fb-content">
-    <div class="fb-subtitle">
-      ショートカットの追加・修正リクエストを開発者に送ることができます。<br>
-      いただいた内容は次回アップデートの参考にします。
-    </div>
-
-    <form id="fb-form" onsubmit="submitFeedbackForm(event)">
-
-      <!-- 種類 -->
-      <div class="fb-field-label">種類</div>
-      <div class="fb-type-row">
-        <button type="button" class="fb-type-btn active" data-type="追加"  onclick="setFeedbackType('追加')">➕ 追加リクエスト</button>
-        <button type="button" class="fb-type-btn"        data-type="修正"  onclick="setFeedbackType('修正')">✏️ 修正依頼</button>
-        <button type="button" class="fb-type-btn"        data-type="その他" onclick="setFeedbackType('その他')">💬 その他</button>
-      </div>
-
-      <!-- 操作名 -->
-      <div class="fb-field-label">操作名 <span class="fb-optional">任意</span></div>
-      <input class="fb-input" id="fb-op" type="text"
-        placeholder="例：スライドをグループ化する" maxlength="100" autocomplete="off">
-
-      <!-- キー -->
-      <div class="fb-field-label">ショートカットキー <span class="fb-optional">任意</span></div>
-      <input class="fb-input" id="fb-keys" type="text"
-        placeholder="例：Ctrl+G" maxlength="60" autocomplete="off">
-
-      <!-- 詳細 -->
-      <div class="fb-field-label">詳細・メッセージ <span class="fb-optional">任意</span></div>
-      <textarea class="fb-textarea" id="fb-message" rows="4" maxlength="500"
-        placeholder="修正内容の説明、参考URL、ご意見など"></textarea>
-
-      <!-- お名前 -->
-      <div class="fb-field-label">お名前 <span class="fb-optional">任意</span></div>
-      <input class="fb-input" id="fb-name" type="text"
-        placeholder="匿名でも送信できます" maxlength="30" autocomplete="off">
-
-      <div class="fb-error" id="fb-error"></div>
-
-      <button class="fb-submit-btn" id="fb-submit" type="submit">📨 送信する</button>
-    </form>
-
-    <!-- 送信完了 -->
-    <div id="fb-result" style="display:none" class="fb-success">
-      <div class="fb-success-icon">🎉</div>
-      <div class="fb-success-title">送信完了！</div>
-      <div class="fb-success-msg">
-        リクエストありがとうございます。<br>
-        確認次第、次回アップデートの参考にします。
-      </div>
-      <button class="fb-back-btn" onclick="feedbackBack()">← 戻る</button>
-    </div>
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfRG_AmiQAN8itwLvyfD5VV8_zP5wdAIVAprPqHPAi5jTg9DQ/viewform?embedded=true"
+      class="fb-gform"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0">読み込み中…</iframe>
   </div>
 </div>
 
