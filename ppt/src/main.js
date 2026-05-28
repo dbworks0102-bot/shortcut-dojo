@@ -8,7 +8,7 @@ import { getPlayerName, savePlayerName, getHi } from './core/storage.js'
 import { initModal, hideModal, _modalCancelCb } from './ui/modal.js'
 import { selectDiff, goTitle }                  from './ui/screens.js'
 import { startGame, confirmQuit, confirmRestart, answer } from './core/game.js'
-import { showRanking, showRankTab, rankBack, confirmClearRanks } from './ui/ranking.js'
+import { showRanking, showRankTab, rankBack, confirmClearRanks, setRankMode } from './ui/ranking.js'
 import { showMyPage, mpBack, confirmResetStats } from './ui/mypage.js'
 import { shareScore }                           from './utils/share.js'
 
@@ -30,6 +30,7 @@ Object.assign(window, {
   confirmResetStats,
   // リザルト画面の「ランキング」ボタン: onclick="showRankingCurrent()"
   showRankingCurrent: () => showRanking(G.diff),
+  setRankMode,
 
   // リザルト画面の「シェア」ボタン: onclick="shareResult()"
   shareResult: async () => {

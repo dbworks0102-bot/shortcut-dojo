@@ -622,6 +622,22 @@
     }
     .rank-clear-btn:hover { color: var(--red); border-color: var(--red); }
 
+    /* ローカル / グローバル 切替 */
+    .rank-mode-row { display: flex; gap: 0.4rem; margin-bottom: 0.7rem; flex-shrink: 0; }
+    .rmt-btn {
+      padding: 0.3rem 0.85rem; border-radius: 50px; border: none;
+      font-family: inherit; font-size: 0.75rem; font-weight: 700; cursor: pointer;
+      background: rgba(255,255,255,0.06); color: var(--muted); transition: all 0.2s;
+    }
+    .rmt-btn.active { background: rgba(255,255,255,0.16); color: #fff; }
+    .rmt-btn:hover  { background: rgba(255,255,255,0.12); color: #fff; }
+
+    /* ランキングサブタイトル */
+    .rank-subtitle {
+      font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em;
+      margin-bottom: 0.6rem; padding: 0 0.2rem;
+    }
+
     .rank-tabs {
       display: flex; gap: 0.5rem; margin-bottom: 1.2rem; flex-shrink: 0;
     }
@@ -787,6 +803,112 @@
 
     /* other */
     ::-webkit-scrollbar { display: none; }
+
+    /* ===================================================
+       MOBILE RESPONSIVE  (〜480px)
+    =================================================== */
+    @media (max-width: 480px) {
+
+      /* ── タイトル画面 ── */
+      .logo-main        { font-size: 3.6rem; }
+      .logo-sub         { font-size: 0.78rem; }
+      .how-to-brief     { font-size: 0.76rem; padding: 0.65rem 1rem; line-height: 1.7; }
+      .diff-btn         { padding: 0.5rem 0.75rem; font-size: 0.78rem; }
+      .start-btn        { padding: 0.85rem 2rem; font-size: 1.05rem; }
+      .title-btns-row   { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+      .name-wrap        { padding: 0.45rem 0.7rem 0.45rem 1rem; }
+      .name-input       { width: 130px; }
+
+      /* ── ゲームHUD ── */
+      .g-header         { padding: 0 0.5rem; }
+      .g-ctrl-btn       { padding: 0.28rem 0.45rem; gap: 2px; }
+      .g-ctrl-btn .btn-icon { font-size: 0.95rem; }
+      .g-ctrl-btn span:last-child { font-size: 0.5rem; }
+      .h-stats          { gap: 0.5rem; }
+      .h-stat           { min-width: 50px; }
+      .h-value          { font-size: 1.15rem; }
+      .h-label          { font-size: 0.48rem; }
+
+      /* ── メインプレート ── */
+      .main-plate       { width: 148px; height: 148px; padding: 0.8rem; }
+      .q-bar-wrap       { width: 148px; }
+      .plate-op         { font-size: 0.84rem; }
+      .plate-op.long    { font-size: 0.7rem; }
+      .plate-cat        { font-size: 0.5rem; }
+      .q-label          { font-size: 0.78rem; }
+
+      /* ── 選択肢ボタン ── */
+      .choices          { gap: 0.5rem; }
+      .c-btn            { font-size: 0.8rem; padding: 0.6rem 0.55rem; gap: 0.35rem; }
+      .c-num            { width: 18px; height: 18px; font-size: 0.62rem; }
+      .kc               { font-size: 0.64rem; padding: 1px 4px; }
+
+      /* ── ヒントバー ── */
+      .hint-bar         { font-size: 0.58rem; gap: 0.5rem; padding: 0.35rem 0.8rem; }
+
+      /* ── リザルト画面 ── */
+      .r-grade          { font-size: 5.2rem; margin-bottom: 0.2rem; }
+      .r-score          { font-size: 1.75rem; }
+      .r-difficulty     { font-size: 0.72rem; }
+      .r-rank           { font-size: 0.82rem; padding: 0.25rem 0.8rem; margin-bottom: 0.9rem; }
+      .r-stats          { gap: 0.7rem; flex-wrap: wrap; justify-content: center; margin-bottom: 0.8rem; }
+      .r-stat-v         { font-size: 1.1rem; }
+      .r-stat-l         { font-size: 0.58rem; }
+      .r-btns           { flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
+      .r-btn            { padding: 0.55rem 1rem; font-size: 0.78rem; }
+      #share-btn        { width: 100%; max-width: 240px; padding: 0.55rem; }
+
+      /* ── ランキング画面 ── */
+      .rank-header      { padding: 0 0.8rem; }
+      .rank-back-btn    { padding: 0.38rem 0.8rem; font-size: 0.78rem; }
+      .rank-title       { font-size: 1.1rem; }
+      .rank-tabs        { gap: 0.3rem; }
+      .rank-tab         { padding: 0.42rem 0.8rem; font-size: 0.78rem; }
+      .rank-table-wrap  { padding: 0 0.6rem 5rem; }
+      .rank-row,
+      .rank-row-header  {
+        grid-template-columns: 30px 1fr 68px 46px;
+        font-size: 0.76rem;
+        padding: 0.55rem 0.6rem;
+        gap: 0.3rem;
+      }
+      /* モバイルでは「最大コンボ」「日付」列を非表示 */
+      .rank-col-combo,
+      .rank-col-date,
+      .rank-row-header span:nth-child(5),
+      .rank-row-header span:nth-child(6)  { display: none; }
+      .rank-score       { font-size: 0.8rem; }
+      .rank-pos         { font-size: 1.1rem; }
+
+      /* ── マイページ ── */
+      .mp-header        { padding: 0 0.8rem; }
+      .mp-content       { padding: 0 0.6rem 5rem; }
+      .mp-overview      { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .mp-stat-card .sv { font-size: 1.25rem; }
+      .mp-stat-card .sl { font-size: 0.58rem; }
+      .mp-cat-name      { width: 80px; font-size: 0.7rem; }
+      .mp-cat-pct       { font-size: 0.7rem; }
+      .mp-weak-row      { grid-template-columns: 1fr 62px; font-size: 0.78rem; padding: 0.5rem 0.7rem; }
+      .mp-weak-tries    { display: none; }
+
+      /* ── モーダル ── */
+      .modal-box        { width: 90vw; min-width: 0; padding: 1.4rem 1.5rem; }
+      .modal-title      { font-size: 1.05rem; }
+      .modal-msg        { font-size: 0.8rem; }
+      .m-btn            { padding: 0.55rem 1.2rem; font-size: 0.85rem; }
+    }
+
+    /* ===================================================
+       TABLET  (481px 〜 768px) — 微調整のみ
+    =================================================== */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .r-grade   { font-size: 7rem; }
+      .r-btns    { flex-wrap: wrap; justify-content: center; }
+      .rank-row,
+      .rank-row-header { font-size: 0.8rem; }
+      .rank-col-date { display: none; }
+      .rank-row-header span:nth-child(6) { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -936,6 +1058,12 @@
     <button class="rank-back-btn" id="rank-back-btn" onclick="rankBack()">← 戻る</button>
     <div class="rank-title">🏆 ランキング</div>
     <button class="rank-clear-btn" onclick="confirmClearRanks()">🗑 クリア</button>
+  </div>
+
+  <!-- ローカル / グローバル 切替 -->
+  <div class="rank-mode-row">
+    <button class="rmt-btn active" id="rmt-local"  onclick="setRankMode('local')">💾 ローカル</button>
+    <button class="rmt-btn"        id="rmt-online" onclick="setRankMode('online')" style="display:none">🌐 グローバル</button>
   </div>
 
   <div class="rank-tabs">

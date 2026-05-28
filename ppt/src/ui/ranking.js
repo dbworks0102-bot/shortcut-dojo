@@ -1,20 +1,32 @@
 // =========================================================
-//  ランキング画面
+//  ランキング画面（ローカル + オンライン対応）
 // =========================================================
 import { G } from '../core/state.js'
 import { getRankings, clearRankings, getPlayerName } from '../core/storage.js'
 import { escHtml } from '../utils/helpers.js'
 import { showModal } from './modal.js'
 import { showScreen, goTitle } from './screens.js'
+import { getOnlineRankings, isOnlineEnabled } from '../utils/supabase.js'
 
 export let currentRankDiff = 'easy'
+let rankMode = 'local'  // 'local' | 'online'
 
+// =========================================================
+//  画面表示
+// =========================================================
 export function showRanking(diff) {
-  currentRankDiff    = diff || 'easy'
-  G.rankFrom         = G.rankFrom || 'title'
+  currentRankDiff = diff || 'easy'
+  G.rankFrom      = G.rankFrom || 'title'
   showScreen('ranking')
   document.querySelectorAll('.rank-tab').forEach(t => t.classList.remove('active'))
   document.querySelector('.rank-tab.' + currentRankDiff).classList.add('active')
+
+  // オンラインボタン表示制御
+  const onlineBtn = document.getElementById('rmt-online')
+  if (onlineBtn) {
+    onlineBtn.style.display = isOnlineEnabled() ? '' : 'none'
+  }
+
   renderRankTable(currentRankDiff)
 }
 
@@ -33,32 +45,67 @@ export function rankBack() {
   }
 }
 
-export function renderRankTable(diff) {
-  const wrap   = document.getElementById('rank-table-wrap')
-  const ranks  = getRankings(diff)
-  const myName = getPlayerName() || 'ゲスト'
+// =========================================================
+//  ローカル / オンライン モード切替
+// =========================================================
+export function setRankMode(mode) {
+  rankMode = mode
+  document.getElementById('rmt-local')?.classList.toggle('active',  mode === 'local')
+  document.getElementById('rmt-online')?.classList.toggle('active', mode === 'online')
+  renderRankTable(currentRankDiff)
+}
 
+// =========================================================
+//  テーブル描画（ローカル or オンライン）
+// =========================================================
+export async function renderRankTable(diff) {
+  const wrap = document.getElementById('rank-table-wrap')
+
+  if (rankMode === 'online') {
+    // ローディング表示
+    wrap.innerHTML = `
+      <div class="rank-empty">
+        <div class="rank-empty-icon">⏳</div>
+        オンラインランキング読み込み中…
+      </div>`
+
+    const ranks  = await getOnlineRankings(diff)
+    const myName = getPlayerName() || 'ゲスト'
+    _renderRows(wrap, ranks, myName, '🌐 グローバルランキング（上位50名）')
+  } else {
+    const ranks  = getRankings(diff)
+    const myName = getPlayerName() || 'ゲスト'
+    _renderRows(wrap, ranks, myName, null)
+  }
+}
+
+function _renderRows(wrap, ranks, myName, subtitle) {
   if (ranks.length === 0) {
     wrap.innerHTML = `
       <div class="rank-empty">
         <div class="rank-empty-icon">📋</div>
         まだ記録がありません<br>
-        <small>ゲームをプレイしてランキングに登録しよう！</small>
+        <small>${rankMode === 'online' ? 'インターネット接続を確認してください' : 'ゲームをプレイしてランキングに登録しよう！'}</small>
       </div>`
     return
   }
 
   const medals = { 0: '🥇', 1: '🥈', 2: '🥉' }
-  let html = `
+  let html = subtitle
+    ? `<div class="rank-subtitle">${subtitle}</div>`
+    : ''
+
+  html += `
     <div class="rank-row-header">
-      <span>順位</span><span>名前</span>
+      <span>順位</span>
+      <span>名前</span>
       <span style="text-align:right">スコア</span>
       <span style="text-align:right">正解率</span>
-      <span style="text-align:right">最大コンボ</span>
-      <span style="text-align:right">日付</span>
+      <span class="rank-col-combo" style="text-align:right">最大コンボ</span>
+      <span class="rank-col-date"  style="text-align:right">日付</span>
     </div>`
 
-  ranks.slice(0, 10).forEach((r, i) => {
+  ranks.slice(0, 50).forEach((r, i) => {
     const posIcon = medals[i] ?? (i + 1)
     const isMine  = r.name === myName
     const rowCls  = isMine ? 'rank-row mine' : i < 3 ? `rank-row top${i + 1}` : 'rank-row'
@@ -69,13 +116,16 @@ export function renderRankTable(diff) {
         <span class="rank-name">${escHtml(r.name)}${youTag}</span>
         <span class="rank-score">${r.score.toLocaleString()}</span>
         <span class="rank-acc">${r.acc}%</span>
-        <span class="rank-combo">${r.maxCombo}</span>
-        <span class="rank-date">${r.date}</span>
+        <span class="rank-combo rank-col-combo">${r.maxCombo}</span>
+        <span class="rank-date  rank-col-date">${r.date}</span>
       </div>`
   })
   wrap.innerHTML = html
 }
 
+// =========================================================
+//  ランキングクリア
+// =========================================================
 export function confirmClearRanks() {
   showModal(
     '🗑', 'ランキングをクリア',

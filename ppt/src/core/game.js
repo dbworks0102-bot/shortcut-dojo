@@ -11,6 +11,7 @@ import { getPlayerName, getHi, setHi, saveScore, savePlayerStats, savePlayerName
 import { showModal }                             from '../ui/modal.js'
 import { updateHUD, renderQ }                    from '../ui/hud.js'
 import { showScreen, goTitle }                   from '../ui/screens.js'
+import { saveOnlineScore }                       from '../utils/supabase.js'
 
 // 問題タイマーバーのRAFフレームID
 let qBarFrame = null
@@ -207,6 +208,9 @@ export function endGame() {
   const entry = { name, score: sc, correct: G.correct, wrong: G.wrong, maxCombo: G.maxCombo, acc, date: new Date().toLocaleDateString('ja-JP'), ts: Date.now() }
   const { rank, total: rankTotal } = saveScore(G.diff, entry)
   savePlayerStats(name, G.sessionStats, sc)
+
+  // オンラインランキングにも保存（非同期・失敗しても続行）
+  saveOnlineScore({ ...entry, diff: G.diff })
 
   const gradeEl = document.getElementById('r-grade')
   gradeEl.textContent = grade
