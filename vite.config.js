@@ -11,6 +11,7 @@ export default defineConfig({
         main:  resolve(__dirname, 'index.html'),
         ppt:   resolve(__dirname, 'ppt/index.html'),
         excel: resolve(__dirname, 'excel/index.html'),
+        word:  resolve(__dirname, 'word/index.html'),
       },
     },
   },
