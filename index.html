@@ -111,16 +111,16 @@
       --red:    #e63946;
       --orange: #f4a261;
       --teal:   #2a9d8f;
-      --dark:   #0f0e17;
-      --dark2:  #1a1a2e;
-      --muted:  #8892b0;
-      --gold:   #ffd700;
+      --dark:   #1a1a2e;
+      --dark2:  #f5f5f7;
+      --muted:  #6b7280;
+      --gold:   #d97706;
     }
 
     body {
       font-family: 'Noto Sans JP', 'Segoe UI', sans-serif;
-      background: var(--dark);
-      color: #fff;
+      background: #ffffff;
+      color: #1a1a2e;
       min-height: 100vh;
     }
 
@@ -180,11 +180,11 @@
 
     .card {
       background: var(--dark2);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 20px;
       padding: 1.8rem 1.6rem;
       text-decoration: none;
-      color: #fff;
+      color: #1a1a2e;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
       position: relative;
       overflow: hidden;
@@ -199,8 +199,8 @@
     }
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      border-color: rgba(255,255,255,0.18);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      border-color: rgba(0,0,0,0.15);
     }
 
     .card-icon  { font-size: 2.4rem; margin-bottom: 0.8rem; display: block; }
@@ -216,7 +216,7 @@
       font-weight: 700;
       padding: 3px 10px;
       border-radius: 50px;
-      background: rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.06);
       color: var(--gold);
     }
 
@@ -228,8 +228,8 @@
       padding: 3px 10px;
       border-radius: 50px;
     }
-    .badge-live { background: rgba(42,157,143,0.25); color: var(--teal); }
-    .badge-soon { background: rgba(255,255,255,0.07); color: var(--muted); }
+    .badge-live { background: rgba(42,157,143,0.15); color: var(--teal); }
+    .badge-soon { background: rgba(0,0,0,0.06); color: var(--muted); }
 
     /* ── フッター ── */
     footer {
@@ -237,7 +237,7 @@
       padding: 2rem;
       font-size: 0.78rem;
       color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(0,0,0,0.08);
     }
   </style>
 </head>
@@ -294,11 +294,11 @@
   </main>
 
   <!-- SEO補足セクション -->
-  <section style="max-width:960px;margin:0 auto;padding:0 1.5rem 3rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <section style="max-width:960px;margin:0 auto;padding:0 1.5rem 3rem;border-top:1px solid rgba(0,0,0,0.08);">
     <h2 style="font-size:0.9rem;font-weight:700;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin:2rem 0 1rem;">よくあるショートカットキー</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
-      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem 1.2rem;">
-        <h3 style="font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.6rem;">🥋 パワポ（PowerPoint）</h3>
+      <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:1rem 1.2rem;">
+        <h3 style="font-size:0.9rem;font-weight:700;color:#1a1a2e;margin-bottom:0.6rem;">🥋 パワポ（PowerPoint）</h3>
         <ul style="font-size:0.8rem;color:var(--muted);line-height:2;list-style:none;padding:0;">
           <li><code style="color:var(--orange);background:rgba(244,162,97,0.1);padding:1px 6px;border-radius:4px;">Ctrl+S</code>　上書き保存</li>
           <li><code style="color:var(--orange);background:rgba(244,162,97,0.1);padding:1px 6px;border-radius:4px;">Ctrl+Z</code>　元に戻す</li>
@@ -307,8 +307,8 @@
           <li><code style="color:var(--orange);background:rgba(244,162,97,0.1);padding:1px 6px;border-radius:4px;">Ctrl+G</code>　オブジェクトをグループ化</li>
         </ul>
       </div>
-      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem 1.2rem;">
-        <h3 style="font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.6rem;">📊 エクセル（Excel）</h3>
+      <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:1rem 1.2rem;">
+        <h3 style="font-size:0.9rem;font-weight:700;color:#1a1a2e;margin-bottom:0.6rem;">📊 エクセル（Excel）</h3>
         <ul style="font-size:0.8rem;color:var(--muted);line-height:2;list-style:none;padding:0;">
           <li><code style="color:var(--teal);background:rgba(42,157,143,0.1);padding:1px 6px;border-radius:4px;">Ctrl+Enter</code>　複数セルに一括入力</li>
           <li><code style="color:var(--teal);background:rgba(42,157,143,0.1);padding:1px 6px;border-radius:4px;">Alt+=</code>　オートSUM（合計）</li>
@@ -317,8 +317,8 @@
           <li><code style="color:var(--teal);background:rgba(42,157,143,0.1);padding:1px 6px;border-radius:4px;">Ctrl+1</code>　セルの書式設定</li>
         </ul>
       </div>
-      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem 1.2rem;">
-        <h3 style="font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.6rem;">📝 ワード（Word）</h3>
+      <div style="background:#f5f5f7;border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:1rem 1.2rem;">
+        <h3 style="font-size:0.9rem;font-weight:700;color:#1a1a2e;margin-bottom:0.6rem;">📝 ワード（Word）</h3>
         <ul style="font-size:0.8rem;color:var(--muted);line-height:2;list-style:none;padding:0;">
           <li><code style="color:#f4a261;background:rgba(244,162,97,0.1);padding:1px 6px;border-radius:4px;">Ctrl+B</code>　太字</li>
           <li><code style="color:#f4a261;background:rgba(244,162,97,0.1);padding:1px 6px;border-radius:4px;">Ctrl+E</code>　中央揃え</li>
@@ -329,7 +329,7 @@
       </div>
     </div>
     <p style="font-size:0.78rem;color:var(--muted);margin-top:1.5rem;line-height:1.8;">
-      ショートカットキーを覚えるコツは<strong style="color:#fff;">毎日少しずつ練習すること</strong>。
+      ショートカットキーを覚えるコツは<strong style="color:#1a1a2e;">毎日少しずつ練習すること</strong>。
       ショートカット道場では、ゲーム感覚でパワポ・エクセル・ワードのショートカットキーをクイズ形式で練習できます。
       <a href="/ppt/" style="color:var(--orange);text-decoration:none;">PPT道場</a>ではPowerPointのショートカットキーを150問・3難易度で練習可能。無料でお試しください。
     </p>
