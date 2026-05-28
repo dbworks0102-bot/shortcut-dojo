@@ -5,8 +5,8 @@
 //    VITE_SUPABASE_ANON_KEY = sb_publishable_xxx or eyJxxxxxxx
 // =========================================================
 
-const URL_BASE = import.meta.env.VITE_SUPABASE_URL     || ''
-const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+const URL_BASE = import.meta.env.VITE_SUPABASE_URL     || 'https://gqdkhvipjcpwfzeyczxx.supabase.co'
+const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_qIsUonaI-u-Pmg7Xn4OS6Q_oYBgzdoJ'
 
 /** Supabase が有効かどうか */
 export const isOnlineEnabled = () => !!(URL_BASE && ANON_KEY)
