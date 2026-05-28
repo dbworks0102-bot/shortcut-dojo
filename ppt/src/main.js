@@ -11,6 +11,7 @@ import { startGame, confirmQuit, confirmRestart, answer } from './core/game.js'
 import { showRanking, showRankTab, rankBack, confirmClearRanks, setRankMode } from './ui/ranking.js'
 import { showMyPage, mpBack, confirmResetStats } from './ui/mypage.js'
 import { shareScore }                           from './utils/share.js'
+import { showShortcutsList, shortcutsBack, filterShortcuts } from './ui/shortcuts-list.js'
 
 // =========================================================
 //  HTMLから呼び出せるようにwindowへ公開
@@ -31,6 +32,9 @@ Object.assign(window, {
   // リザルト画面の「ランキング」ボタン: onclick="showRankingCurrent()"
   showRankingCurrent: () => showRanking(G.diff),
   setRankMode,
+  showShortcutsList,
+  shortcutsBack,
+  filterShortcuts,
 
   // リザルト画面の「シェア」ボタン: onclick="shareResult()"
   shareResult: async () => {
