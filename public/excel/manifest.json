@@ -1,0 +1,70 @@
+{
+  "name": "Excel道場 — Excel ショートカットキー練習",
+  "short_name": "Excel道場",
+  "description": "Excelのショートカットキーを4択クイズで楽しく練習！約80問・3難易度・ランキング機能付き。無料。",
+  "lang": "ja",
+  "start_url": "/excel/",
+  "scope": "/excel/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f0e17",
+  "theme_color": "#217346",
+  "categories": ["games", "education", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/excel/ogp.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Excel道場 ゲーム画面"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "ゲーム開始（かんたん）",
+      "url": "/excel/?diff=easy",
+      "description": "かんたんモードで練習開始"
+    },
+    {
+      "name": "ゲーム開始（むずかしい）",
+      "url": "/excel/?diff=hard",
+      "description": "むずかしいモードで挑戦"
+    }
+  ]
+}

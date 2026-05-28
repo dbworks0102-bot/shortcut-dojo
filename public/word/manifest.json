@@ -1,0 +1,70 @@
+{
+  "name": "Word道場 — Word ショートカットキー練習",
+  "short_name": "Word道場",
+  "description": "Word（ワード）のショートカットキーを4択クイズで楽しく練習！書式設定から段落・移動まで幅広く収録。3難易度・ランキング機能付き。無料。",
+  "lang": "ja",
+  "start_url": "/word/",
+  "scope": "/word/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f0e17",
+  "theme_color": "#2b579a",
+  "categories": ["games", "education", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/word/ogp.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Word道場 ゲーム画面"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "ゲーム開始（かんたん）",
+      "url": "/word/?diff=easy",
+      "description": "かんたんモードで練習開始"
+    },
+    {
+      "name": "ゲーム開始（むずかしい）",
+      "url": "/word/?diff=hard",
+      "description": "むずかしいモードで挑戦"
+    }
+  ]
+}
