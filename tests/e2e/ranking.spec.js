@@ -47,6 +47,8 @@ test.describe('ランキング画面', () => {
     })
     await page.reload()
     await page.locator('.rank-open-btn').click()
+    // ローカルモードに切替（デフォルトはグローバル）
+    await page.locator('#rmt-local').click()
     await expect(page.locator('.rank-row')).toBeVisible()
     await expect(page.locator('.rank-name').first()).toContainText('テスト太郎')
   })
@@ -61,6 +63,8 @@ test.describe('ランキング画面', () => {
     })
     await page.reload()
     await page.locator('.rank-open-btn').click()
+    // ローカルモードに切替（デフォルトはグローバル）
+    await page.locator('#rmt-local').click()
     await expect(page.locator('.you-tag')).toBeVisible()
   })
 

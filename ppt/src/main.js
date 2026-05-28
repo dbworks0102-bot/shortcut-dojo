@@ -12,6 +12,7 @@ import { showRanking, showRankTab, rankBack, confirmClearRanks, setRankMode } fr
 import { showMyPage, mpBack, confirmResetStats } from './ui/mypage.js'
 import { shareScore }                           from './utils/share.js'
 import { showShortcutsList, shortcutsBack, filterShortcuts } from './ui/shortcuts-list.js'
+import { showFeedback, feedbackBack, setFeedbackType, submitFeedbackForm } from './ui/feedback.js'
 
 // =========================================================
 //  HTMLから呼び出せるようにwindowへ公開
@@ -35,6 +36,10 @@ Object.assign(window, {
   showShortcutsList,
   shortcutsBack,
   filterShortcuts,
+  showFeedback,
+  feedbackBack,
+  setFeedbackType,
+  submitFeedbackForm,
 
   // リザルト画面の「シェア」ボタン: onclick="shareResult()"
   shareResult: async () => {

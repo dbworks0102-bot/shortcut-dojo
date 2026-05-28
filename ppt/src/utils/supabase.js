@@ -43,6 +43,24 @@ export async function saveOnlineScore({ name, score, correct, wrong, maxCombo, a
 // =========================================================
 //  ランキング取得（難易度別 TOP 50）
 // =========================================================
+// =========================================================
+//  フィードバック送信
+// =========================================================
+export async function submitFeedback({ type, op_name, keys, message, sender_name }) {
+  if (!isOnlineEnabled()) return false
+  try {
+    await sbFetch('/rest/v1/feedback', {
+      method:  'POST',
+      headers: { 'Prefer': 'return=minimal' },
+      body: JSON.stringify({ type, op_name, keys, message, sender_name }),
+    })
+    return true
+  } catch (err) {
+    console.warn('[Supabase] feedback submit failed:', err)
+    return false
+  }
+}
+
 export async function getOnlineRankings(diff) {
   if (!isOnlineEnabled()) return []
   const qs = new URLSearchParams({
