@@ -393,6 +393,7 @@ function generateIndexHTML(publishedList, allArticles) {
     <span>記事数：<strong>${total}件</strong></span>
     <span>対象アプリ：<strong>7種類</strong></span>
     <span>更新頻度：<strong>毎日2記事</strong></span>
+    <span><a href="/tips/report/" style="color:#e63946;font-weight:700;text-decoration:none;">📊 デイリーレポート →</a></span>
   </div>
 </header>
 
