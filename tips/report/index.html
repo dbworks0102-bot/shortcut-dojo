@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デイリーレポート 2026年6月7日 | ショートカット道場 Tips</title>
+  <title>デイリーレポート 2026年6月8日 | ショートカット道場 Tips</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFR73HWEPN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SFR73HWEPN');
+  </script>
+
   <style>
     *, *::before, *::after { margin:0;padding:0;box-sizing:border-box; }
     body { font-family:'Noto Sans JP','Segoe UI',sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.7; }
@@ -21,7 +31,7 @@
     .page-header h1 { font-size:1.5rem;font-weight:900;margin-bottom:0.3rem; }
     .page-header .sub { font-size:0.82rem;color:#6b7280; }
     .cards { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:2rem; }
-    .stat-card { background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .stat-card { background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-top:3px solid #e5e7eb; }
     .stat-card .label { font-size:0.72rem;font-weight:700;letter-spacing:1px;color:#6b7280;text-transform:uppercase;margin-bottom:0.4rem; }
     .stat-card .value { font-size:2rem;font-weight:900;line-height:1.2; }
     .stat-card .unit  { font-size:0.8rem;color:#6b7280;margin-left:2px; }
@@ -52,8 +62,7 @@
 
   <div style="max-width:960px;margin:0 auto;padding:0.8rem 1.5rem;">
     <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:12px;padding:1rem 1.5rem;font-size:0.82rem;color:#92400e;">
-      ⚠️ <strong>GA4 未設定：</strong>閲覧数を取得するには GitHub Secrets に <code>GA4_PROPERTY_ID</code> と <code>GA_CREDENTIALS_JSON</code> を設定してください。
-      → <a href="https://github.com/dbworks0102-bot/shortcut-dojo/settings/secrets/actions" style="color:#92400e;">Secrets 設定ページ</a>
+      ⚠️ <strong>Supabase 未設定：</strong>Supabase ダッシュボードで <code>article_views</code> テーブルと <code>increment_article_view</code> RPC 関数を作成してください。
     </div>
   </div>
 
@@ -61,27 +70,20 @@
 
   <div class="page-header">
     <h1>📊 デイリーレポート</h1>
-    <div class="sub">生成日時：2026年6月7日 (JST) — 記事閲覧数サマリー</div>
+    <div class="sub">生成日時：2026年6月8日 (JST) — 記事閲覧数サマリー</div>
   </div>
 
   <!-- サマリーカード -->
   <div class="cards">
-    <div class="stat-card">
-      <div class="label">🔢 累計閲覧数</div>
+    <div class="stat-card" style="border-top-color:#e63946">
+      <div class="label">🔢 記事合計閲覧数</div>
       <div class="value">—<span class="unit">PV</span></div>
     </div>
-    <div class="stat-card">
-      <div class="label">📅 直近7日間</div>
-      <div class="value">—<span class="unit">PV</span></div>
-    </div>
-    <div class="stat-card">
-      <div class="label">📈 昨日</div>
-      <div class="value">—<span class="unit">PV</span></div>
-    </div>
-    <div class="stat-card">
+    <div class="stat-card" style="border-top-color:#2a9d8f">
       <div class="label">📝 公開記事数</div>
-      <div class="value">14<span class="unit">件</span></div>
+      <div class="value">4<span class="unit">件</span></div>
     </div>
+    
   </div>
 
   <!-- 記事別閲覧数 -->
@@ -97,107 +99,7 @@
     </thead>
     <tbody>
       <tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月7日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/ppt-slideshow/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">パワポのスライドショーを瞬時に開始する — F5 の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#e63946">🥋 PPT道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月7日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/mac-screenshot-area/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Macで必要な部分だけキャプチャする — ⌘+Shift+4 の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#555555">🍎 Mac道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月6日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/mac-app-switch/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Macで複数アプリを素早く切り替える — ⌘+Tab の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#555555">🍎 Mac道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月6日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/mac-screenshot-full/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Macで画面全体をスクリーンショット — ⌘+Shift+3 の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#555555">🍎 Mac道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月5日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/mac-spotlight/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Macで何でも瞬時に開く「Spotlight検索」— ⌘+Space の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#555555">🍎 Mac道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月5日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/teams-camera/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Teams会議中のカメラを素早く切り替える — Ctrl+Shift+O の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#6264A7">💬 Teams道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月4日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/teams-search/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Teamsで人・メッセージを素早く検索する — Ctrl+E の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#6264A7">💬 Teams道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月4日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/teams-mute/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Teams会議中のミュートを瞬時に切り替える — Ctrl+Shift+M の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#6264A7">💬 Teams道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月4日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/chrome-address-bar/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Chromeのアドレスバーに瞬時にフォーカスする — Ctrl+L の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#4285F4">🌐 Chrome道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月4日</td>
-        <td style="padding:0.6rem 1rem;">
-          <a href="/tips/chrome-reopen-tab/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">間違って閉じたタブを即座に復元する — Ctrl+Shift+T の使い方</a>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:center;">
-          <span style="background:rgba(0,0,0,0.05);border-radius:6px;padding:2px 10px;font-size:0.82rem;font-weight:700;color:#4285F4">🌐 Chrome道場</span>
-        </td>
-        <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
-      </tr>
-<tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月2日</td>
+        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月8日</td>
         <td style="padding:0.6rem 1rem;">
           <a href="/tips/chrome-new-tab/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Chromeで「新しいタブ」を瞬時に開く — Ctrl+T の使い方</a>
         </td>
@@ -207,7 +109,7 @@
         <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
       </tr>
 <tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月2日</td>
+        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月8日</td>
         <td style="padding:0.6rem 1rem;">
           <a href="/tips/outlook-calendar/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Outlookで「予定表」に素早く切り替える — Ctrl+2 の使い方</a>
         </td>
@@ -217,7 +119,7 @@
         <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
       </tr>
 <tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月2日</td>
+        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月8日</td>
         <td style="padding:0.6rem 1rem;">
           <a href="/tips/outlook-new-mail/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Outlookで「新規メール」を素早く作成する — Ctrl+N の使い方</a>
         </td>
@@ -227,7 +129,7 @@
         <td style="padding:0.6rem 1rem;text-align:right;font-weight:700;font-size:0.9rem;color:#1a1a2e;">—</td>
       </tr>
 <tr>
-        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月2日</td>
+        <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">2026年6月8日</td>
         <td style="padding:0.6rem 1rem;">
           <a href="/tips/outlook-reply/" style="color:#1a1a2e;font-weight:700;font-size:0.85rem;text-decoration:none;">Outlookで「返信」を一瞬で開く — Ctrl+R の使い方</a>
         </td>
@@ -240,7 +142,7 @@
   </table>
 
   <p style="font-size:0.75rem;color:#9ca3af;margin-top:1rem;">
-    ※ データは Google Analytics 4 から取得。更新は毎日 9:00 JST。
+    ※ データは Supabase から取得。更新は毎日 9:00 JST。
   </p>
 
 </div>

@@ -12,7 +12,6 @@
     "test:prod": "playwright test --config=playwright.prod.config.js"
   },
   "devDependencies": {
-    "@google-analytics/data": "^6.1.0",
     "@playwright/test": "^1.60.0",
     "jsdom": "latest",
     "vite": "^8.0.14",

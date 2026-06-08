@@ -2,71 +2,21 @@
   {
     "id": "outlook-ctrl-r",
     "slug": "outlook-reply",
-    "date": "2026-06-02"
+    "date": "2026-06-08"
   },
   {
     "id": "outlook-ctrl-n",
     "slug": "outlook-new-mail",
-    "date": "2026-06-02"
+    "date": "2026-06-08"
   },
   {
     "id": "outlook-ctrl-2",
     "slug": "outlook-calendar",
-    "date": "2026-06-02"
+    "date": "2026-06-08"
   },
   {
     "id": "chrome-ctrl-t",
     "slug": "chrome-new-tab",
-    "date": "2026-06-02"
-  },
-  {
-    "id": "chrome-ctrl-shift-t",
-    "slug": "chrome-reopen-tab",
-    "date": "2026-06-04"
-  },
-  {
-    "id": "chrome-ctrl-l",
-    "slug": "chrome-address-bar",
-    "date": "2026-06-04"
-  },
-  {
-    "id": "teams-ctrl-shift-m",
-    "slug": "teams-mute",
-    "date": "2026-06-04"
-  },
-  {
-    "id": "teams-ctrl-e",
-    "slug": "teams-search",
-    "date": "2026-06-04"
-  },
-  {
-    "id": "teams-ctrl-shift-o",
-    "slug": "teams-camera",
-    "date": "2026-06-05"
-  },
-  {
-    "id": "mac-cmd-space",
-    "slug": "mac-spotlight",
-    "date": "2026-06-05"
-  },
-  {
-    "id": "mac-cmd-shift-3",
-    "slug": "mac-screenshot-full",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "mac-cmd-tab",
-    "slug": "mac-app-switch",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "mac-cmd-shift-4",
-    "slug": "mac-screenshot-area",
-    "date": "2026-06-07"
-  },
-  {
-    "id": "ppt-f5",
-    "slug": "ppt-slideshow",
-    "date": "2026-06-07"
+    "date": "2026-06-08"
   }
 ]

@@ -2,9 +2,7 @@
  * デイリーレポート生成スクリプト
  * Usage: node scripts/gen-daily-report.mjs
  *
- * 環境変数:
- *   GA4_PROPERTY_ID      — GA4 プロパティ ID (例: 123456789)
- *   GA_CREDENTIALS_JSON  — サービスアカウントキー JSON 文字列
+ * Supabase の article_views テーブルから閲覧数を取得してレポートHTMLを生成する
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
@@ -15,6 +13,9 @@ const root      = resolve(__dirname, '..')
 const TIPS_DIR  = resolve(root, 'tips')
 const PUB_FILE  = resolve(TIPS_DIR, 'published.json')
 const DB_FILE   = resolve(TIPS_DIR, 'articles-db.json')
+
+const SB_URL = 'https://gqdkhvipjcpwfzeyczxx.supabase.co'
+const SB_KEY = 'sb_publishable_qIsUonaI-u-Pmg7Xn4OS6Q_oYBgzdoJ'
 
 // ─── 日付ユーティリティ ────────────────────────────────────────────────────────
 function todayJST() {
@@ -27,102 +28,66 @@ function formatDate(isoDate) {
   return `${y}年${parseInt(m)}月${parseInt(d)}日`
 }
 
-function nDaysAgo(n) {
-  const d = new Date(Date.now() + 9 * 60 * 60 * 1000 - n * 86400000)
-  return d.toISOString().slice(0, 10)
-}
-
-// ─── GA4 からデータ取得 ───────────────────────────────────────────────────────
-async function fetchGA4Data() {
-  const propertyId  = process.env.GA4_PROPERTY_ID
-  const credsJson   = process.env.GA_CREDENTIALS_JSON
-
-  if (!propertyId || !credsJson) {
-    console.log('ℹ️   GA4 環境変数が未設定のためスキップします (GA4_PROPERTY_ID / GA_CREDENTIALS_JSON)')
+// ─── Supabase からビュー数取得 ─────────────────────────────────────────────────
+async function fetchSupabaseViews() {
+  try {
+    const res = await fetch(
+      `${SB_URL}/rest/v1/article_views?select=slug,views&order=views.desc`,
+      { headers: { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` } }
+    )
+    if (!res.ok) {
+      console.log(`⚠️  Supabase クエリ失敗 (${res.status}): article_views テーブルが未作成の可能性があります`)
+      return null
+    }
+    const rows = await res.json()
+    const bySlug      = Object.fromEntries(rows.map(r => [r.slug, Number(r.views)]))
+    const totalAllTime = rows.reduce((s, r) => s + Number(r.views), 0)
+    const topArticle   = rows[0] ?? null
+    return { bySlug, totalAllTime, topArticle }
+  } catch (e) {
+    console.log(`⚠️  Supabase 接続エラー: ${e.message}`)
     return null
   }
-
-  const { BetaAnalyticsDataClient } = await import('@google-analytics/data')
-  const client = new BetaAnalyticsDataClient({
-    credentials: JSON.parse(credsJson),
-  })
-
-  // 全期間の /tips/ 以下ページビュー（パス別）
-  const [allTime] = await client.runReport({
-    property: `properties/${propertyId}`,
-    dimensions: [{ name: 'pagePath' }],
-    metrics:    [{ name: 'screenPageViews' }],
-    dateRanges: [{ startDate: '2020-01-01', endDate: 'today' }],
-    dimensionFilter: {
-      filter: {
-        fieldName: 'pagePath',
-        stringFilter: { matchType: 'BEGINS_WITH', value: '/tips/' },
-      },
-    },
-    orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
-  })
-
-  // 直近7日間の /tips/ 合計
-  const [week] = await client.runReport({
-    property: `properties/${propertyId}`,
-    metrics:    [{ name: 'screenPageViews' }],
-    dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],
-    dimensionFilter: {
-      filter: {
-        fieldName: 'pagePath',
-        stringFilter: { matchType: 'BEGINS_WITH', value: '/tips/' },
-      },
-    },
-  })
-
-  // 昨日の /tips/ 合計
-  const [yesterday] = await client.runReport({
-    property: `properties/${propertyId}`,
-    metrics:    [{ name: 'screenPageViews' }],
-    dateRanges: [{ startDate: '1daysAgo', endDate: '1daysAgo' }],
-    dimensionFilter: {
-      filter: {
-        fieldName: 'pagePath',
-        stringFilter: { matchType: 'BEGINS_WITH', value: '/tips/' },
-      },
-    },
-  })
-
-  // パス別マップを構築
-  const byPath = {}
-  for (const row of allTime.rows ?? []) {
-    const path  = row.dimensionValues[0].value
-    const views = parseInt(row.metricValues[0].value, 10)
-    byPath[path] = views
-  }
-
-  const totalAllTime  = Object.values(byPath).reduce((s, v) => s + v, 0)
-  const totalWeek     = parseInt(week.rows?.[0]?.metricValues?.[0]?.value ?? '0', 10)
-  const totalYesterday= parseInt(yesterday.rows?.[0]?.metricValues?.[0]?.value ?? '0', 10)
-
-  return { byPath, totalAllTime, totalWeek, totalYesterday }
 }
 
 // ─── HTML 生成 ────────────────────────────────────────────────────────────────
-function generateReportHTML(gaData, publishedList, allArticles, today) {
-  const artMap = Object.fromEntries(allArticles.map(a => [a.slug, a]))
-  const hasGA  = gaData !== null
+function generateReportHTML(sbData, publishedList, allArticles, today) {
+  const artMap    = Object.fromEntries(allArticles.map(a => [a.slug, a]))
+  const hasData   = sbData !== null
   const dateLabel = formatDate(today)
 
-  const totalAllTime   = hasGA ? gaData.totalAllTime.toLocaleString()   : '—'
-  const totalWeek      = hasGA ? gaData.totalWeek.toLocaleString()      : '—'
-  const totalYesterday = hasGA ? gaData.totalYesterday.toLocaleString() : '—'
-  const totalArticles  = publishedList.length
+  const totalAllTime  = hasData ? sbData.totalAllTime.toLocaleString() : '—'
+  const totalArticles = publishedList.length
 
-  // 記事ごとの行
+  // 最も読まれた記事
+  let topCard = ''
+  if (hasData && sbData.topArticle) {
+    const topArt = artMap[sbData.topArticle.slug]
+    if (topArt) {
+      topCard = `
+    <div class="stat-card" style="border-top:3px solid ${topArt.gameColor}">
+      <div class="label">🏆 最も読まれた記事</div>
+      <div style="font-size:0.88rem;font-weight:700;margin-top:0.4rem;line-height:1.4;">${topArt.title}</div>
+      <div style="font-size:0.82rem;color:#6b7280;margin-top:0.3rem;">${sbData.topArticle.views.toLocaleString()} PV</div>
+    </div>`
+    }
+  }
+
+  const noDataWarning = !hasData ? `
+  <div style="max-width:960px;margin:0 auto;padding:0.8rem 1.5rem;">
+    <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:12px;padding:1rem 1.5rem;font-size:0.82rem;color:#92400e;">
+      ⚠️ <strong>Supabase 未設定：</strong>Supabase ダッシュボードで <code>article_views</code> テーブルと <code>increment_article_view</code> RPC 関数を作成してください。
+    </div>
+  </div>` : ''
+
+  // 記事テーブル行
   const rows = publishedList
     .slice()
     .reverse()
     .map(p => {
-      const a = artMap[p.slug]
+      const a     = artMap[p.slug]
       if (!a) return ''
-      const path  = `/tips/${p.slug}/`
-      const views = hasGA ? (gaData.byPath[path] ?? 0).toLocaleString() : '—'
+      const views = hasData ? (sbData.bySlug[p.slug] ?? 0).toLocaleString() : '—'
       return `<tr>
         <td style="padding:0.6rem 1rem;white-space:nowrap;font-size:0.75rem;color:#6b7280;">${formatDate(p.date)}</td>
         <td style="padding:0.6rem 1rem;">
@@ -135,14 +100,6 @@ function generateReportHTML(gaData, publishedList, allArticles, today) {
       </tr>`
     }).join('\n')
 
-  const noGAWarning = !hasGA ? `
-  <div style="max-width:960px;margin:0 auto;padding:0.8rem 1.5rem;">
-    <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:12px;padding:1rem 1.5rem;font-size:0.82rem;color:#92400e;">
-      ⚠️ <strong>GA4 未設定：</strong>閲覧数を取得するには GitHub Secrets に <code>GA4_PROPERTY_ID</code> と <code>GA_CREDENTIALS_JSON</code> を設定してください。
-      → <a href="https://github.com/dbworks0102-bot/shortcut-dojo/settings/secrets/actions" style="color:#92400e;">Secrets 設定ページ</a>
-    </div>
-  </div>` : ''
-
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -154,6 +111,16 @@ function generateReportHTML(gaData, publishedList, allArticles, today) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFR73HWEPN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SFR73HWEPN');
+  </script>
+
   <style>
     *, *::before, *::after { margin:0;padding:0;box-sizing:border-box; }
     body { font-family:'Noto Sans JP','Segoe UI',sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.7; }
@@ -166,7 +133,7 @@ function generateReportHTML(gaData, publishedList, allArticles, today) {
     .page-header h1 { font-size:1.5rem;font-weight:900;margin-bottom:0.3rem; }
     .page-header .sub { font-size:0.82rem;color:#6b7280; }
     .cards { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:2rem; }
-    .stat-card { background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .stat-card { background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-top:3px solid #e5e7eb; }
     .stat-card .label { font-size:0.72rem;font-weight:700;letter-spacing:1px;color:#6b7280;text-transform:uppercase;margin-bottom:0.4rem; }
     .stat-card .value { font-size:2rem;font-weight:900;line-height:1.2; }
     .stat-card .unit  { font-size:0.8rem;color:#6b7280;margin-left:2px; }
@@ -194,7 +161,7 @@ function generateReportHTML(gaData, publishedList, allArticles, today) {
   <span>デイリーレポート</span>
 </nav>
 
-${noGAWarning}
+${noDataWarning}
 
 <div class="inner">
 
@@ -205,22 +172,15 @@ ${noGAWarning}
 
   <!-- サマリーカード -->
   <div class="cards">
-    <div class="stat-card">
-      <div class="label">🔢 累計閲覧数</div>
+    <div class="stat-card" style="border-top-color:#e63946">
+      <div class="label">🔢 記事合計閲覧数</div>
       <div class="value">${totalAllTime}<span class="unit">PV</span></div>
     </div>
-    <div class="stat-card">
-      <div class="label">📅 直近7日間</div>
-      <div class="value">${totalWeek}<span class="unit">PV</span></div>
-    </div>
-    <div class="stat-card">
-      <div class="label">📈 昨日</div>
-      <div class="value">${totalYesterday}<span class="unit">PV</span></div>
-    </div>
-    <div class="stat-card">
+    <div class="stat-card" style="border-top-color:#2a9d8f">
       <div class="label">📝 公開記事数</div>
       <div class="value">${totalArticles}<span class="unit">件</span></div>
     </div>
+    ${topCard}
   </div>
 
   <!-- 記事別閲覧数 -->
@@ -240,7 +200,7 @@ ${noGAWarning}
   </table>
 
   <p style="font-size:0.75rem;color:#9ca3af;margin-top:1rem;">
-    ※ データは Google Analytics 4 から取得。更新は毎日 9:00 JST。
+    ※ データは Supabase から取得。更新は毎日 9:00 JST。
   </p>
 
 </div>
@@ -265,13 +225,13 @@ const db        = JSON.parse(readFileSync(DB_FILE, 'utf8'))
 const published = existsSync(PUB_FILE) ? JSON.parse(readFileSync(PUB_FILE, 'utf8')) : []
 const today     = todayJST()
 
-const gaData = await fetchGA4Data()
+const sbData = await fetchSupabaseViews()
 
 const reportDir = resolve(TIPS_DIR, 'report')
 mkdirSync(reportDir, { recursive: true })
 
-const html = generateReportHTML(gaData, published, db, today)
+const html = generateReportHTML(sbData, published, db, today)
 writeFileSync(resolve(reportDir, 'index.html'), html, 'utf8')
 
-const totalPV = gaData ? gaData.totalAllTime.toLocaleString() : '(GA未設定)'
+const totalPV = sbData ? sbData.totalAllTime.toLocaleString() : '(Supabase未設定)'
 console.log(`✅  tips/report/index.html — 累計 ${totalPV} PV / ${published.length}記事`)

@@ -289,6 +289,13 @@ function generateArticleHTML(art, publishedDate) {
   <a href="/mac/">Mac道場</a> /
   <a href="/tips/">Tips一覧</a>
 </footer>
+<script>
+  fetch('https://gqdkhvipjcpwfzeyczxx.supabase.co/rest/v1/rpc/increment_article_view', {
+    method: 'POST',
+    headers: { 'apikey': 'sb_publishable_qIsUonaI-u-Pmg7Xn4OS6Q_oYBgzdoJ', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ p_slug: '${art.slug}' })
+  })
+</script>
 </body>
 </html>`
 }

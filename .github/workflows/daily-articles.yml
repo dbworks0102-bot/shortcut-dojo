@@ -32,9 +32,6 @@ jobs:
 
       - name: Generate daily report
         run: node scripts/gen-daily-report.mjs
-        env:
-          GA4_PROPERTY_ID:     ${{ secrets.GA4_PROPERTY_ID }}
-          GA_CREDENTIALS_JSON: ${{ secrets.GA_CREDENTIALS_JSON }}
 
       - name: Build site
         run: npm run build
