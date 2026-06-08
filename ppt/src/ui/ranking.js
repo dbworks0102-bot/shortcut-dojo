@@ -77,7 +77,7 @@ export async function renderRankTable(diff) {
         オンラインランキング読み込み中…
       </div>`
 
-    const ranks  = await getOnlineRankings(diff)
+    const ranks  = await getOnlineRankings(diff, 'ppt')
     const myName = getPlayerName() || 'ゲスト'
     _renderRows(wrap, ranks, myName, '🌐 グローバルランキング（上位50名）')
   } else {

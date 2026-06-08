@@ -210,7 +210,7 @@ export function endGame() {
   savePlayerStats(name, G.sessionStats, sc)
 
   // オンラインランキングにも保存（非同期・失敗しても続行）
-  saveOnlineScore({ ...entry, diff: G.diff })
+  saveOnlineScore({ ...entry, diff: G.diff, game: 'word' })
 
   const gradeEl = document.getElementById('r-grade')
   gradeEl.textContent = grade

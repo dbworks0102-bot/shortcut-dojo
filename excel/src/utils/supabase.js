@@ -31,12 +31,12 @@ async function sbFetch(path, opts = {}) {
 // =========================================================
 //  スコア保存（ゲーム終了時）
 // =========================================================
-export async function saveOnlineScore({ name, score, correct, wrong, maxCombo, acc, diff, ts }) {
+export async function saveOnlineScore({ name, score, correct, wrong, maxCombo, acc, diff, ts, game }) {
   if (!isOnlineEnabled()) return
   await sbFetch('/rest/v1/scores', {
     method:  'POST',
     headers: { 'Prefer': 'return=minimal' },
-    body: JSON.stringify({ name, score, correct, wrong, max_combo: maxCombo, acc, diff, ts }),
+    body: JSON.stringify({ name, score, correct, wrong, max_combo: maxCombo, acc, diff, ts, game }),
   }).catch(err => console.warn('[Supabase] score save failed:', err))
 }
 
@@ -61,10 +61,11 @@ export async function submitFeedback({ type, op_name, keys, message, sender_name
   }
 }
 
-export async function getOnlineRankings(diff) {
+export async function getOnlineRankings(diff, game) {
   if (!isOnlineEnabled()) return []
   const qs = new URLSearchParams({
     diff:   `eq.${diff}`,
+    game:   `eq.${game}`,
     order:  'score.desc',
     limit:  '50',
     select: 'name,score,correct,wrong,max_combo,acc,created_at',
