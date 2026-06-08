@@ -1,0 +1,60 @@
+name: Weekly SEO & Content Improvement
+
+on:
+  schedule:
+    # 毎週月曜 9:00 JST (日曜 UTC 0:00) に実行
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+    inputs:
+      articles_to_generate:
+        description: '生成する記事数 (デフォルト: 4)'
+        required: false
+        default: '4'
+      seo_threshold:
+        description: 'SEO改善の閲覧数しきい値 (デフォルト: 5)'
+        required: false
+        default: '5'
+
+jobs:
+  improve:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate new articles with Claude AI
+        run: node scripts/ai-content-generator.mjs
+        env:
+          ANTHROPIC_API_KEY:      ${{ secrets.ANTHROPIC_API_KEY }}
+          ARTICLES_TO_GENERATE:   ${{ github.event.inputs.articles_to_generate || '4' }}
+
+      - name: Optimize low-view articles SEO
+        run: node scripts/seo-optimizer.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SEO_THRESHOLD:     ${{ github.event.inputs.seo_threshold || '5' }}
+          SEO_MAX:           '3'
+
+      - name: Build site
+        run: npm run build
+
+      - name: Commit and push improvements
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tips/articles-db.json
+          git diff --cached --quiet || git commit -m "feat: AI-generated articles & SEO improvements $(date -u '+%Y-%m-%d')"
+          git push
