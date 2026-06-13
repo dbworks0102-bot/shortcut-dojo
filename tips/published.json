@@ -2,116 +2,11 @@
   {
     "id": "outlook-ctrl-r",
     "slug": "outlook-reply",
-    "date": "2026-06-08"
+    "date": "2026-06-13"
   },
   {
     "id": "outlook-ctrl-n",
     "slug": "outlook-new-mail",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "outlook-ctrl-2",
-    "slug": "outlook-calendar",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "chrome-ctrl-t",
-    "slug": "chrome-new-tab",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "chrome-ctrl-shift-t",
-    "slug": "chrome-reopen-tab",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "chrome-ctrl-l",
-    "slug": "chrome-address-bar",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "teams-ctrl-shift-m",
-    "slug": "teams-mute",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "teams-ctrl-e",
-    "slug": "teams-search",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "teams-ctrl-shift-o",
-    "slug": "teams-camera",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "mac-cmd-space",
-    "slug": "mac-spotlight",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "mac-cmd-shift-3",
-    "slug": "mac-screenshot-full",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "mac-cmd-tab",
-    "slug": "mac-app-switch",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "mac-cmd-shift-4",
-    "slug": "mac-screenshot-area",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "ppt-f5",
-    "slug": "ppt-slideshow",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "excel-alt-equal",
-    "slug": "excel-autosum",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "excel-ctrl-enter",
-    "slug": "excel-bulk-input",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "word-ctrl-b",
-    "slug": "word-bold",
-    "date": "2026-06-09"
-  },
-  {
-    "id": "chrome-f12",
-    "slug": "chrome-devtools",
-    "date": "2026-06-09"
-  },
-  {
-    "id": "outlook-ctrl-enter",
-    "slug": "outlook-send",
-    "date": "2026-06-10"
-  },
-  {
-    "id": "ppt-ctrl-s",
-    "slug": "ppt-ctrl-s",
-    "date": "2026-06-10"
-  },
-  {
-    "id": "ppt-ctrl-z",
-    "slug": "ppt-ctrl-z",
-    "date": "2026-06-11"
-  },
-  {
-    "id": "ppt-ctrl-c",
-    "slug": "ppt-ctrl-c",
-    "date": "2026-06-11"
-  },
-  {
-    "id": "ppt-ctrl-v",
-    "slug": "ppt-ctrl-v",
-    "date": "2026-06-12"
+    "date": "2026-06-13"
   }
 ]
