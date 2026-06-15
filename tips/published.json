@@ -18,5 +18,15 @@
     "id": "chrome-ctrl-t",
     "slug": "chrome-new-tab",
     "date": "2026-06-14"
+  },
+  {
+    "id": "chrome-ctrl-shift-t",
+    "slug": "chrome-reopen-tab",
+    "date": "2026-06-16"
+  },
+  {
+    "id": "chrome-ctrl-l",
+    "slug": "chrome-address-bar",
+    "date": "2026-06-16"
   }
 ]
