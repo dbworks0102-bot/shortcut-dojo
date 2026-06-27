@@ -138,5 +138,15 @@
     "id": "ppt-ctrl-x",
     "slug": "ppt-ctrl-x",
     "date": "2026-06-26"
+  },
+  {
+    "id": "ppt-ctrl-a",
+    "slug": "ppt-ctrl-a",
+    "date": "2026-06-27"
+  },
+  {
+    "id": "ppt-ctrl-p",
+    "slug": "ppt-ctrl-p",
+    "date": "2026-06-27"
   }
 ]
