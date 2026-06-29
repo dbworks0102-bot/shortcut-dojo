@@ -153,5 +153,15 @@
     "id": "ppt-ctrl-n",
     "slug": "ppt-ctrl-n",
     "date": "2026-06-28"
+  },
+  {
+    "id": "ppt-ctrl-o",
+    "slug": "ppt-ctrl-o",
+    "date": "2026-06-29"
+  },
+  {
+    "id": "ppt-ctrl-d",
+    "slug": "ppt-ctrl-d",
+    "date": "2026-06-29"
   }
 ]
