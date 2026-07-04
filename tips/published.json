@@ -28,5 +28,15 @@
     "id": "chrome-ctrl-l",
     "slug": "chrome-address-bar",
     "date": "2026-07-03"
+  },
+  {
+    "id": "teams-ctrl-shift-m",
+    "slug": "teams-mute",
+    "date": "2026-07-04"
+  },
+  {
+    "id": "teams-ctrl-e",
+    "slug": "teams-search",
+    "date": "2026-07-04"
   }
 ]
