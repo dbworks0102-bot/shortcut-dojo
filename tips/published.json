@@ -38,5 +38,15 @@
     "id": "teams-ctrl-e",
     "slug": "teams-search",
     "date": "2026-07-04"
+  },
+  {
+    "id": "teams-ctrl-shift-o",
+    "slug": "teams-camera",
+    "date": "2026-07-05"
+  },
+  {
+    "id": "mac-cmd-space",
+    "slug": "mac-spotlight",
+    "date": "2026-07-05"
   }
 ]
