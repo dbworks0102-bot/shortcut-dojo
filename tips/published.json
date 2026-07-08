@@ -68,5 +68,15 @@
     "id": "ppt-f5",
     "slug": "ppt-slideshow",
     "date": "2026-07-07"
+  },
+  {
+    "id": "excel-alt-equal",
+    "slug": "excel-autosum",
+    "date": "2026-07-08"
+  },
+  {
+    "id": "excel-ctrl-enter",
+    "slug": "excel-bulk-input",
+    "date": "2026-07-08"
   }
 ]
