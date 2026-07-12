@@ -108,5 +108,15 @@
     "id": "ppt-ctrl-c",
     "slug": "ppt-ctrl-c",
     "date": "2026-07-11"
+  },
+  {
+    "id": "ppt-ctrl-v",
+    "slug": "ppt-ctrl-v",
+    "date": "2026-07-12"
+  },
+  {
+    "id": "excel-ctrl-s",
+    "slug": "excel-ctrl-s",
+    "date": "2026-07-12"
   }
 ]
