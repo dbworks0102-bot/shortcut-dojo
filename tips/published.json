@@ -168,5 +168,15 @@
     "id": "ppt-ctrl-f",
     "slug": "ppt-ctrl-f",
     "date": "2026-07-17"
+  },
+  {
+    "id": "ppt-f1",
+    "slug": "ppt-f1",
+    "date": "2026-07-18"
+  },
+  {
+    "id": "ppt-ctrl-y",
+    "slug": "ppt-ctrl-y",
+    "date": "2026-07-18"
   }
 ]
