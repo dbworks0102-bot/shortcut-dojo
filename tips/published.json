@@ -178,5 +178,15 @@
     "id": "ppt-ctrl-y",
     "slug": "ppt-ctrl-y",
     "date": "2026-07-18"
+  },
+  {
+    "id": "ppt-ctrl-shift-s",
+    "slug": "ppt-ctrl-shift-s",
+    "date": "2026-07-19"
+  },
+  {
+    "id": "ppt-f12",
+    "slug": "ppt-f12",
+    "date": "2026-07-19"
   }
 ]
