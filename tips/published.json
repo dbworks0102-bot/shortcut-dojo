@@ -198,5 +198,15 @@
     "id": "ppt-ctrl-q",
     "slug": "ppt-ctrl-q",
     "date": "2026-07-20"
+  },
+  {
+    "id": "ppt-ctrl-h",
+    "slug": "ppt-ctrl-h",
+    "date": "2026-07-21"
+  },
+  {
+    "id": "ppt-ctrl-k",
+    "slug": "ppt-ctrl-k",
+    "date": "2026-07-21"
   }
 ]
