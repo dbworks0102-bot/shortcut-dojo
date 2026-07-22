@@ -208,5 +208,15 @@
     "id": "ppt-ctrl-k",
     "slug": "ppt-ctrl-k",
     "date": "2026-07-21"
+  },
+  {
+    "id": "ppt-ctrl-shift-c",
+    "slug": "ppt-ctrl-shift-c",
+    "date": "2026-07-22"
+  },
+  {
+    "id": "ppt-ctrl-shift-v",
+    "slug": "ppt-ctrl-shift-v",
+    "date": "2026-07-22"
   }
 ]
