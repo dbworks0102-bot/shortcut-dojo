@@ -58,5 +58,15 @@
     "id": "mac-cmd-tab",
     "slug": "mac-app-switch",
     "date": "2026-07-30"
+  },
+  {
+    "id": "mac-cmd-shift-4",
+    "slug": "mac-screenshot-area",
+    "date": "2026-07-31"
+  },
+  {
+    "id": "ppt-f5",
+    "slug": "ppt-slideshow",
+    "date": "2026-07-31"
   }
 ]
