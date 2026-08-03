@@ -88,5 +88,15 @@
     "id": "chrome-f12",
     "slug": "chrome-devtools",
     "date": "2026-08-02"
+  },
+  {
+    "id": "outlook-ctrl-enter",
+    "slug": "outlook-send",
+    "date": "2026-08-03"
+  },
+  {
+    "id": "ppt-ctrl-s",
+    "slug": "ppt-ctrl-s",
+    "date": "2026-08-03"
   }
 ]
