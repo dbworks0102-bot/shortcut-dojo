@@ -118,5 +118,15 @@
     "id": "excel-ctrl-s",
     "slug": "excel-ctrl-s",
     "date": "2026-08-05"
+  },
+  {
+    "id": "excel-ctrl-z",
+    "slug": "excel-ctrl-z",
+    "date": "2026-08-06"
+  },
+  {
+    "id": "excel-ctrl-c",
+    "slug": "excel-ctrl-c",
+    "date": "2026-08-06"
   }
 ]
