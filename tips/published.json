@@ -128,5 +128,15 @@
     "id": "excel-ctrl-c",
     "slug": "excel-ctrl-c",
     "date": "2026-08-06"
+  },
+  {
+    "id": "excel-ctrl-v",
+    "slug": "excel-ctrl-v",
+    "date": "2026-08-07"
+  },
+  {
+    "id": "ppt-ctrl-x",
+    "slug": "ppt-ctrl-x",
+    "date": "2026-08-07"
   }
 ]
