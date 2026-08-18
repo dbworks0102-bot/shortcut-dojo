@@ -238,5 +238,15 @@
     "id": "ppt-ctrl-alt-v",
     "slug": "ppt-ctrl-alt-v",
     "date": "2026-08-17"
+  },
+  {
+    "id": "ppt-ctrl-f2",
+    "slug": "ppt-ctrl-f2",
+    "date": "2026-08-18"
+  },
+  {
+    "id": "ppt-ctrl-b",
+    "slug": "ppt-ctrl-b",
+    "date": "2026-08-18"
   }
 ]
