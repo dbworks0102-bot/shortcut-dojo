@@ -268,5 +268,15 @@
     "id": "ppt-ctrl-shift-",
     "slug": "ppt-ctrl-shift-less",
     "date": "2026-08-20"
+  },
+  {
+    "id": "ppt-shift-f3",
+    "slug": "ppt-shift-f3",
+    "date": "2026-08-21"
+  },
+  {
+    "id": "ppt-ctrl-space",
+    "slug": "ppt-ctrl-space",
+    "date": "2026-08-21"
   }
 ]
