@@ -278,5 +278,15 @@
     "id": "ppt-ctrl-space",
     "slug": "ppt-ctrl-space",
     "date": "2026-08-21"
+  },
+  {
+    "id": "ppt-f2",
+    "slug": "ppt-f2",
+    "date": "2026-08-22"
+  },
+  {
+    "id": "ppt-ctrl-",
+    "slug": "ppt-ctrl-bracket-right",
+    "date": "2026-08-22"
   }
 ]
