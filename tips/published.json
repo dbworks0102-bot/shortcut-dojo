@@ -298,5 +298,15 @@
     "id": "ppt-ctrl-l",
     "slug": "ppt-ctrl-l",
     "date": "2026-08-23"
+  },
+  {
+    "id": "ppt-ctrl-e",
+    "slug": "ppt-ctrl-e",
+    "date": "2026-08-24"
+  },
+  {
+    "id": "ppt-ctrl-r",
+    "slug": "ppt-ctrl-r",
+    "date": "2026-08-24"
   }
 ]
