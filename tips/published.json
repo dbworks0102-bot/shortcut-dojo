@@ -8,5 +8,15 @@
     "id": "outlook-ctrl-n",
     "slug": "outlook-new-mail",
     "date": "2026-08-26"
+  },
+  {
+    "id": "outlook-ctrl-2",
+    "slug": "outlook-calendar",
+    "date": "2026-08-27"
+  },
+  {
+    "id": "chrome-ctrl-t",
+    "slug": "chrome-new-tab",
+    "date": "2026-08-27"
   }
 ]
