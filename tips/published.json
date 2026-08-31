@@ -48,5 +48,15 @@
     "id": "mac-cmd-space",
     "slug": "mac-spotlight",
     "date": "2026-08-30"
+  },
+  {
+    "id": "mac-cmd-shift-3",
+    "slug": "mac-screenshot-full",
+    "date": "2026-08-31"
+  },
+  {
+    "id": "mac-cmd-tab",
+    "slug": "mac-app-switch",
+    "date": "2026-08-31"
   }
 ]
