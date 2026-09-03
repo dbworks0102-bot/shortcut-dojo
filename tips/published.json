@@ -78,5 +78,15 @@
     "id": "excel-ctrl-enter",
     "slug": "excel-bulk-input",
     "date": "2026-09-02"
+  },
+  {
+    "id": "word-ctrl-b",
+    "slug": "word-bold",
+    "date": "2026-09-03"
+  },
+  {
+    "id": "chrome-f12",
+    "slug": "chrome-devtools",
+    "date": "2026-09-03"
   }
 ]
