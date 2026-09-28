@@ -328,5 +328,15 @@
     "id": "ppt-ctrl-2",
     "slug": "ppt-ctrl-2",
     "date": "2026-09-27"
+  },
+  {
+    "id": "ppt-ctrl-m",
+    "slug": "ppt-ctrl-m",
+    "date": "2026-09-28"
+  },
+  {
+    "id": "ppt-pagedown",
+    "slug": "ppt-pagedown",
+    "date": "2026-09-28"
   }
 ]
