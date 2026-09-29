@@ -338,5 +338,15 @@
     "id": "ppt-pagedown",
     "slug": "ppt-pagedown",
     "date": "2026-09-28"
+  },
+  {
+    "id": "ppt-pageup",
+    "slug": "ppt-pageup",
+    "date": "2026-09-29"
+  },
+  {
+    "id": "ppt-delete",
+    "slug": "ppt-delete",
+    "date": "2026-09-29"
   }
 ]
