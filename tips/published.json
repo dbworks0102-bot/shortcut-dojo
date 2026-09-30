@@ -348,5 +348,15 @@
     "id": "ppt-delete",
     "slug": "ppt-delete",
     "date": "2026-09-29"
+  },
+  {
+    "id": "ppt-ctrl-home",
+    "slug": "ppt-ctrl-home",
+    "date": "2026-09-30"
+  },
+  {
+    "id": "ppt-ctrl-end",
+    "slug": "ppt-ctrl-end",
+    "date": "2026-09-30"
   }
 ]
