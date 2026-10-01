@@ -358,5 +358,15 @@
     "id": "ppt-ctrl-end",
     "slug": "ppt-ctrl-end",
     "date": "2026-09-30"
+  },
+  {
+    "id": "ppt-shift-f5",
+    "slug": "ppt-shift-f5",
+    "date": "2026-10-01"
+  },
+  {
+    "id": "ppt-esc",
+    "slug": "ppt-esc",
+    "date": "2026-10-01"
   }
 ]
