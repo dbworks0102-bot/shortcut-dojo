@@ -398,5 +398,15 @@
     "id": "ppt-backspace",
     "slug": "ppt-backspace",
     "date": "2026-10-04"
+  },
+  {
+    "id": "ppt-p",
+    "slug": "ppt-p",
+    "date": "2026-10-05"
+  },
+  {
+    "id": "ppt-home",
+    "slug": "ppt-home",
+    "date": "2026-10-05"
   }
 ]
