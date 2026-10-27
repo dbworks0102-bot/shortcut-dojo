@@ -188,5 +188,15 @@
     "id": "ppt-f12",
     "slug": "ppt-f12",
     "date": "2026-10-26"
+  },
+  {
+    "id": "ppt-ctrl-w",
+    "slug": "ppt-ctrl-w",
+    "date": "2026-10-27"
+  },
+  {
+    "id": "ppt-ctrl-q",
+    "slug": "ppt-ctrl-q",
+    "date": "2026-10-27"
   }
 ]
