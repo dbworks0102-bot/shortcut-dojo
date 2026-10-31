@@ -228,5 +228,15 @@
     "id": "ppt-f4",
     "slug": "ppt-f4",
     "date": "2026-10-30"
+  },
+  {
+    "id": "ppt-shift-f7",
+    "slug": "ppt-shift-f7",
+    "date": "2026-10-31"
+  },
+  {
+    "id": "ppt-ctrl-alt-v",
+    "slug": "ppt-ctrl-alt-v",
+    "date": "2026-10-31"
   }
 ]
