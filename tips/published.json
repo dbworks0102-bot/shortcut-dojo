@@ -248,5 +248,15 @@
     "id": "ppt-ctrl-b",
     "slug": "ppt-ctrl-b",
     "date": "2026-11-01"
+  },
+  {
+    "id": "ppt-ctrl-i",
+    "slug": "ppt-ctrl-i",
+    "date": "2026-11-02"
+  },
+  {
+    "id": "ppt-ctrl-u",
+    "slug": "ppt-ctrl-u",
+    "date": "2026-11-02"
   }
 ]
