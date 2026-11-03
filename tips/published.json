@@ -258,5 +258,15 @@
     "id": "ppt-ctrl-u",
     "slug": "ppt-ctrl-u",
     "date": "2026-11-02"
+  },
+  {
+    "id": "ppt-ctrl-shift-",
+    "slug": "ppt-ctrl-shift-greater",
+    "date": "2026-11-03"
+  },
+  {
+    "id": "ppt-ctrl-shift-",
+    "slug": "ppt-ctrl-shift-less",
+    "date": "2026-11-03"
   }
 ]
