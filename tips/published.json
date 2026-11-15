@@ -378,5 +378,15 @@
     "id": "ppt-space",
     "slug": "ppt-space",
     "date": "2026-11-14"
+  },
+  {
+    "id": "ppt-",
+    "slug": "ppt-next-slide-right-arrow",
+    "date": "2026-11-15"
+  },
+  {
+    "id": "ppt-",
+    "slug": "ppt-down-arrow-next-slide",
+    "date": "2026-11-15"
   }
 ]
