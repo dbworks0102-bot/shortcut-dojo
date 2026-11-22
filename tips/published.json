@@ -448,5 +448,15 @@
     "id": "ppt-ctrl-g",
     "slug": "ppt-ctrl-g",
     "date": "2026-11-21"
+  },
+  {
+    "id": "ppt-ctrl-shift-g",
+    "slug": "ppt-ctrl-shift-g",
+    "date": "2026-11-22"
+  },
+  {
+    "id": "ppt-tab",
+    "slug": "ppt-tab",
+    "date": "2026-11-22"
   }
 ]
