@@ -458,5 +458,15 @@
     "id": "ppt-tab",
     "slug": "ppt-tab",
     "date": "2026-11-22"
+  },
+  {
+    "id": "ppt-shift-tab",
+    "slug": "ppt-shift-tab",
+    "date": "2026-11-23"
+  },
+  {
+    "id": "ppt-alt-shift-c",
+    "slug": "ppt-alt-shift-c",
+    "date": "2026-11-23"
   }
 ]
