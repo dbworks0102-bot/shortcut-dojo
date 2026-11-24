@@ -468,5 +468,15 @@
     "id": "ppt-alt-shift-c",
     "slug": "ppt-alt-shift-c",
     "date": "2026-11-23"
+  },
+  {
+    "id": "ppt-alt-shift-v",
+    "slug": "ppt-alt-shift-v",
+    "date": "2026-11-24"
+  },
+  {
+    "id": "ppt-shift-",
+    "slug": "ppt-shift-right-arrow",
+    "date": "2026-11-24"
   }
 ]
