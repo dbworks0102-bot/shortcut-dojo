@@ -478,5 +478,15 @@
     "id": "ppt-shift-",
     "slug": "ppt-shift-right-arrow",
     "date": "2026-11-24"
+  },
+  {
+    "id": "ppt-shift-home",
+    "slug": "ppt-shift-home",
+    "date": "2026-11-25"
+  },
+  {
+    "id": "ppt-shift-end",
+    "slug": "ppt-shift-end",
+    "date": "2026-11-25"
   }
 ]
