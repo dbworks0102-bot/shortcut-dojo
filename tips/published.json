@@ -498,5 +498,15 @@
     "id": "ppt-ctrl-shift-end",
     "slug": "ppt-ctrl-shift-end",
     "date": "2026-11-26"
+  },
+  {
+    "id": "ppt-alt-shift-",
+    "slug": "ppt-alt-shift-up",
+    "date": "2026-11-27"
+  },
+  {
+    "id": "ppt-alt-shift-",
+    "slug": "ppt-alt-shift-down",
+    "date": "2026-11-27"
   }
 ]
